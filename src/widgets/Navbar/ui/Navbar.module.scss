@@ -1,0 +1,18 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    height: var(--navbar-height);
+    background: var(--inverted-bg-color);
+}
+
+.links,
+.dropdown {
+    margin-left: auto;
+}
+
+.appName {
+    margin-left: 15px;
+    width: var(--sidebar-width);
+}

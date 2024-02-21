@@ -1,0 +1,50 @@
+// TODO: вынести все для проекта z-index в переменные в
+// общем файле, чтобы было удобно задавать приоритеты
+.sidebar {
+    flex-shrink: 0;
+    position: relative;
+    height: calc(100vh - var(--navbar-height));
+    width: var(--sidebar-width);
+    background: var(--inverted-bg-color);
+    transition: width 0.3s;
+}
+
+.switchers {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 100;
+    bottom: 20px;
+    width: 100%;
+}
+
+.lang {
+    margin-left: 20px;
+}
+
+.collapseBtn {
+    position: absolute;
+    right: -32px;
+    bottom: 32px;
+    z-index: 99999;
+}
+
+.items {
+    margin: {
+        top: 20px;
+        left: 30px;
+    }
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lang {
+        margin-left: 0;
+    }
+}

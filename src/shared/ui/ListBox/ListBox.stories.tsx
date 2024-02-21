@@ -1,0 +1,65 @@
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ListBox } from './ListBox';
+
+export default {
+    title: 'shared/ListBox',
+    component: ListBox,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+    decorators: [
+        (Story) => <div style={{ padding: 100 }}><Story /></div>,
+    ],
+} as ComponentMeta<typeof ListBox>;
+
+const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+
+export const Normal = Template.bind({});
+Normal.args = {
+    value: '333',
+    items: [
+        { value: '333', content: 'qwerty2ui3op3asd1fgh4jk0lz5xcv1bnm333' },
+        { value: '555', content: 'qwerty2ui3op3asd1fgh4jk0lz5xcv1bnm555' },
+    ],
+};
+
+export const TopLeft = Template.bind({});
+TopLeft.args = {
+    direction: 'top left',
+    value: '333',
+    items: [
+        { value: '333', content: 'qwerty2ui3op3asd1fgh4jk0lz5xcv1bnm333' },
+        { value: '555', content: 'qwerty2ui3op3asd1fgh4jk0lz5xcv1bnm555' },
+    ],
+};
+
+export const TopRight = Template.bind({});
+TopRight.args = {
+    direction: 'top right',
+    value: '333',
+    items: [
+        { value: '333', content: 'qwerty2ui3op3asd1fgh4jk0lz5xcv1bnm333' },
+        { value: '555', content: 'qwerty2ui3op3asd1fgh4jk0lz5xcv1bnm555' },
+    ],
+};
+
+export const BottomLeft = Template.bind({});
+BottomLeft.args = {
+    direction: 'bottom left',
+    value: '333',
+    items: [
+        { value: '333', content: 'qwerty2ui3op3asd1fgh4jk0lz5xcv1bnm333' },
+        { value: '555', content: 'qwerty2ui3op3asd1fgh4jk0lz5xcv1bnm555' },
+    ],
+};
+
+export const BottomRight = Template.bind({});
+BottomRight.args = {
+    direction: 'bottom right',
+    value: '333',
+    items: [
+        { value: '333', content: 'qwerty2ui3op3asd1fgh4jk0lz5xcv1bnm333' },
+        { value: '555', content: 'qwerty2ui3op3asd1fgh4jk0lz5xcv1bnm555' },
+    ],
+};

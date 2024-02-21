@@ -1,0 +1,32 @@
+.wrapper {
+    display: flex;
+}
+
+.label {
+    margin-right: 5px;
+}
+
+// TODO: проверить утверждение -> в контрастном режиме операционной системы,
+// которым могут пользоваться люди с ограниченными возможностями при 'outline: none'
+// не работают события hover и focus, т.е. выбор элемента будет не виден,
+// в отличие от 'outline-color: transparent'.
+// При актуальности проблемы, заменить (по всему проекту) outline: none на
+// outline-color: transparent
+.select {
+    padding: {
+        top: 2px;
+        right: 10px;
+        bottom: 2px;
+        left: 2px;
+    };
+
+    outline: none;
+    background: none;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.option {
+    background: var(--inverted-bg-color);
+    color: var(--inverted-primary-color);
+}
