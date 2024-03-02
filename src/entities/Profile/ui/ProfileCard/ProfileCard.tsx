@@ -47,7 +47,7 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
     } = props;
     const { t } = useTranslation();
 
-    const onOnlyNumberKeyPress = useCallback((e) => {
+    const onOnlyNumberKeyPress = useCallback((e: any) => {
         if (!/[0-9]/.test(e.key)) {
             e.preventDefault();
         }

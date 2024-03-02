@@ -99,7 +99,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return (
         // https://github.com/bvaughn/react-virtualized/blob/master/source/WindowScroller/WindowScroller.example.js
         <WindowScroller
-            onScroll={() => console.log('scroll')}
             scrollElement={document.getElementById(PAGE_ID) as HTMLElement}
         >
             {({
@@ -111,6 +110,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 scrollTop,
             }) => (
                 <div
+                    // @ts-ignore
                     ref={registerChild}
                     className={classNames(cls.articleList, {}, [
                         className,

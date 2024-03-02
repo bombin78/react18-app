@@ -22,7 +22,7 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 import { profileActions, profileReducer } from '../../model/slices/profileSlice';
 
 interface EditableProfileCardProps {
-    id: string;
+    id?: string;
     className?: string;
 }
 

@@ -33,7 +33,9 @@ export default ({ config }: {config: webpack.Configuration}) => {
 
     config!.plugins!.push(new DefinePlugin({
         __IS_DEV__: JSON.stringify(true),
-        __API__: JSON.stringify(''),
+        // https://testapi.ru/ - несуществующий адрес.
+        // Указан просто дтя того, чтобы что-то было.
+        __API__: JSON.stringify('https://testapi.ru/'),
         __PROJECT__: JSON.stringify('storybook'),
     }));
 
