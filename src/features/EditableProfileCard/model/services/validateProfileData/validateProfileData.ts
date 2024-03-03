@@ -1,5 +1,5 @@
 import { Profile } from 'entities/Profile';
-import { ValidateProfileError } from '../../types/editableProfileCardSchema';
+import { ValidateProfileError } from '../../consts/consts';
 
 // Делаем простой вариант, когда "profile" принимается аргументом, но также можно сделать
 // вариант через AsyncThunk, когда "profile" достается с помощью getState() из "state"

@@ -37,7 +37,14 @@
 	// вроде ts-loader или babel-loader автоматически создают их.
 	// Вместо такого импорта import * as React from 'react'
 	// можно писать такой import React from 'react'
-	"allowSyntheticDefaultImports": true
+	"allowSyntheticDefaultImports": true,
+	// В отличии от TypeScript другие транспиляторы TS в JS одновременно
+	// работают только с одним файлом, а это означает, что они не могут
+	// применять преобразования кода, которые зависят от понимания системы
+	// полных типов. Флаг isolatedModules указывает TypeScript предупреждать
+	// вас, если вы пишете некоторый код, который не может быть корректно
+	// интерпретирован в процессе транспиляции одного файла.
+	"isolatedModules": true
   },
   // Переопределение module для ts-node. Иначе будет ошибка так как выше
   // указано "module": "esNext", а ts-node работает только с "CommonJS"

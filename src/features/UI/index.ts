@@ -1,6 +1,6 @@
 // TODO: Поменять название на Scroll Restoration или
 // вынести на уровень виджета страницы и прям там изолировать
-export { UISchema } from './model/types/uiSchema';
+export type { UISchema } from './model/types/uiSchema';
 
 export { getUIScrollByPath } from './model/selectors/ui';
 
