@@ -26,24 +26,26 @@ export function buildLoaders(options: BuildOptions): RuleSetRule[] {
     };
 
     // https://babeljs.io/setup#installation
-    const babelLoader = buildBabelLoader(options);
+    const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+    const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
     const cssLoader = buildCssLoader(isDev);
 
     // Если бы писали на нативном js, то для обработки jsx понадобился бы
     // babel-loader. Но ts-loader умеет обрабатывать jsx самостоятельно
-    const typeScriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+    // const typeScriptLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/,
+    // };
 
     // Порядок при котором лоадеры возвращаются в массиве имеет значение
     return [
         fileLoader,
         svgLoader,
-        babelLoader,
-        typeScriptLoader,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        // typeScriptLoader,
         cssLoader,
     ];
 }

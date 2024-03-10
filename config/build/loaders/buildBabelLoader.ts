@@ -1,16 +1,20 @@
 import { BuildOptions } from '../types/config';
 
-export function buildBabelLoader({ isDev }: BuildOptions) {
+interface BuildBabelLoaderProps extends BuildOptions {
+    isTsx?: boolean;
+}
+
+export function buildBabelLoader({ isDev, isTsx }: BuildBabelLoaderProps) {
     return {
-        test: /\.(js|jsx|tsx)$/,
+        test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
         exclude: /node_modules/,
         use: {
             loader: 'babel-loader',
             options: {
                 presets: ['@babel/preset-env'],
-                // https://i18next-extract.netlify.app/#
-                // https://i18next-extract.netlify.app/#/configuration?id=locales
                 plugins: [
+                    // https://i18next-extract.netlify.app/#
+                    // https://i18next-extract.netlify.app/#/configuration?id=locales
                     [
                         'i18next-extract',
                         {
@@ -18,6 +22,15 @@ export function buildBabelLoader({ isDev }: BuildOptions) {
                             keyAsDefaultValue: true,
                         },
                     ],
+                    // https://babeljs.io/docs/babel-plugin-transform-typescript
+                    [
+                        '@babel/plugin-transform-typescript',
+                        {
+                            isTsx,
+                        },
+                    ],
+                    // https://babeljs.io/docs/babel-plugin-transform-runtime
+                    '@babel/plugin-transform-runtime',
                     isDev && require.resolve('react-refresh/babel'),
                 ].filter(Boolean), // Если элемент массива = false, то фильтр его не вернет
             },
