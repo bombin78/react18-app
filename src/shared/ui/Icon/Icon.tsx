@@ -6,15 +6,23 @@ interface IconProps {
     className?: string;
     // С большой буквы, потому что компонент
     Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
+    inverted?: boolean;
 }
 
 export const Icon = memo((props: IconProps) => {
     const {
         className,
         Svg,
+        inverted,
     } = props;
 
     return (
-        <Svg className={classNames(cls.icon, {}, [className])} />
+        <Svg
+            className={classNames(
+                inverted ? cls.inverted : cls.icon,
+                {},
+                [className],
+            )}
+        />
     );
 });

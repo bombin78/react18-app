@@ -5,13 +5,15 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropdownDirection } from 'shared/types/ui';
 import cls from './ListBox.module.scss';
-import { Button } from '../Button';
-import { HStack } from '../Stack';
+import popupCls from '../../styles/popup.module.scss';
+import { mapDirectionClass } from '../../styles/consts';
+import { Button } from '../../../Button';
+import { HStack } from '../../../Stack';
 
 export interface ListBoxItem {
     value: string;
     content: ReactNode;
-    disabled?: boolean
+    disabled?: boolean;
 }
 
 interface ListBoxProps {
@@ -24,13 +26,6 @@ interface ListBoxProps {
     readonly?: boolean;
     direction?: DropdownDirection;
 }
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'top left': cls.optionsTopLeft,
-    'top right': cls.optionsTopRight,
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-};
 
 export function ListBox(props: ListBoxProps) {
     const {
@@ -53,7 +48,10 @@ export function ListBox(props: ListBoxProps) {
             <HListBox
                 as="div"
                 disabled={readonly}
-                className={classNames(cls.listBox, {}, [className])}
+                className={classNames(cls.listBox, {}, [
+                    className,
+                    popupCls.popup,
+                ])}
                 value={value}
                 onChange={onChange}
             >
@@ -79,8 +77,8 @@ export function ListBox(props: ListBoxProps) {
                                     className={classNames(
                                         cls.item,
                                         {
-                                            [cls.active]: active,
-                                            [cls.disabled]: item.disabled,
+                                            [popupCls.active]: active,
+                                            [popupCls.disabled]: item.disabled,
                                         },
                                     )}
                                 >

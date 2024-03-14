@@ -12,8 +12,11 @@ import { Text } from 'shared/ui/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { TextTheme } from 'shared/ui/Text/ui/Text';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Dropdown, Popover } from 'shared/ui/Popups';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { HStack } from 'shared/ui/Stack';
+import { Icon } from 'shared/ui/Icon/Icon';
+import Notification from 'shared/assets/icons/notification-20-20.svg';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -54,6 +57,7 @@ export const Navbar = memo((props: NavbarProps) => {
                     theme={TextTheme.INVERTED}
                     title={t('React17 App')}
                 />
+
                 <AppLink
                     className={cls.mainLinks}
                     theme={AppLinkTheme.SECONDARY}
@@ -61,25 +65,44 @@ export const Navbar = memo((props: NavbarProps) => {
                 >
                     {t('Create an article')}
                 </AppLink>
-                <Dropdown
-                    className={cls.dropdown}
-                    direction="bottom left"
-                    items={[
-                        ...(isAdminPanelAvailable ? [{
-                            content: t('Admin panel'),
-                            href: RoutePath.adminPanel,
-                        }] : []),
-                        {
-                            content: t('Profile'),
-                            href: RoutePath.profile + authData.id,
-                        },
-                        {
-                            content: t('Logout'),
-                            onClick: onLogout,
-                        },
-                    ]}
-                    trigger={<Avatar size={30} src={authData.avatar} />}
-                />
+
+                <HStack
+                    gap="16"
+                    className={cls.actions}
+                >
+                    <Popover
+                        direction="bottom left"
+                        trigger={(
+                            <Button theme={ButtonTheme.CLEAR}>
+                                <Icon
+                                    inverted
+                                    Svg={Notification}
+                                />
+                            </Button>
+                        )}
+                    >
+                        asdfasdfg
+                    </Popover>
+
+                    <Dropdown
+                        direction="bottom left"
+                        items={[
+                            ...(isAdminPanelAvailable ? [{
+                                content: t('Admin panel'),
+                                href: RoutePath.adminPanel,
+                            }] : []),
+                            {
+                                content: t('Profile'),
+                                href: RoutePath.profile + authData.id,
+                            },
+                            {
+                                content: t('Logout'),
+                                onClick: onLogout,
+                            },
+                        ]}
+                        trigger={<Avatar size={30} src={authData.avatar} />}
+                    />
+                </HStack>
             </header>
         );
     }
