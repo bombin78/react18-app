@@ -71,15 +71,16 @@ module.exports = {
         'i18next/no-literal-string': [2, {
             markupOnly: true,
             ignoreAttribute: [
-                'as',
-                'role',
-                'data-testid',
-                'to',
-                'target',
-                'direction',
-                'justify',
                 'align',
+                'as',
+                'border',
+                'data-testid',
+                'direction',
                 'gap',
+                'justify',
+                'role',
+                'target',
+                'to',
             ],
         }],
         // Проверка максимальной длины: отключаем проверку комментариев
