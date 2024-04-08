@@ -2,8 +2,8 @@
 // с помощью библиотеки https://floating-ui.com/
 import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DropdownDirection } from 'shared/types/ui';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DropdownDirection } from '@/shared/types/ui';
 import cls from './ListBox.module.scss';
 import popupCls from '../../styles/popup.module.scss';
 import { mapDirectionClass } from '../../styles/consts';

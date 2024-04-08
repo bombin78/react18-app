@@ -1,4 +1,4 @@
-import { Profile } from 'entities/Profile';
+import { Profile } from '@/entities/Profile';
 import { ValidateProfileError } from '../../consts/consts';
 
 // Делаем простой вариант, когда "profile" принимается аргументом, но также можно сделать

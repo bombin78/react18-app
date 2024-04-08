@@ -7,7 +7,7 @@
     bottom: 0;
     right: 0;
     left: 0;
-    z-index: 99;
+    z-index: var(--overlay-z-index);
     background: var(--overlay-color);
     cursor: pointer;
 }

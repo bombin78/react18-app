@@ -3,12 +3,12 @@
 // Один из вариантов решения здесь: https://stackoverflow.com/a/72323038 (установить и
 // импортировать пакет "whatwg-fetch" в файл для настройки тестов)
 import { screen } from '@testing-library/react';
-import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
-import { Profile } from 'entities/Profile';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
 import userEvent from '@testing-library/user-event';
-import { $api } from 'shared/api/api';
+import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
+import { Profile } from '@/entities/Profile';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { $api } from '@/shared/api/api';
 import { EditableProfileCard } from './EditableProfileCard';
 import { profileReducer } from '../../model/slices/profileSlice';
 

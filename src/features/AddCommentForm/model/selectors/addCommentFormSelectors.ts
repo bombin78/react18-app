@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 // Используем оператор нулевого слияния (nullish coalescing operator) вместо оператора "или",
 // чтобы при вводе в input значения "0" оно не было преобразовано в "false"
