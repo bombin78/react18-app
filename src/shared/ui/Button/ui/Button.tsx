@@ -28,8 +28,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     square?: boolean;
     size?: ButtonSize;
     disabled?: boolean;
-    // В react 18 надо будет указывать это свойство отдельно, т.к его нет в типе "FC"
+    // В react 18 необходимо указывать это свойство отдельно, т.к его нет в типе "FC"
     children?: ReactNode;
+    fullWidth?: boolean;
 }
 
 // Предполагаю, что в подавляющем большинстве случает у этого компонента - children
@@ -43,6 +44,7 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
         theme = ButtonTheme.OUTLINE,
         square,
         disabled,
+        fullWidth,
         size = ButtonSize.M,
         ...otherProps
     } = props;
@@ -52,6 +54,7 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
         [cls[size]]: true,
         [cls.square]: square,
         [cls.disabled]: disabled,
+        [cls.fullWidth]: fullWidth,
     };
 
     return (
