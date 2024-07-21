@@ -100,7 +100,7 @@ module.exports = {
         // Отключаем запрет использования индекса массива в ключах
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'ab-fsd/path-checker': 'error',
+        'ab-fsd/path-checker': ['error', { alias: '@' }],
     },
     // Список глобальных переменных
     globals: {

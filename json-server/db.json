@@ -589,6 +589,13 @@
       "articleId": "11",
       "rate": 1,
       "id": "Wicq9w0"
+    },
+    {
+      "userId": "1",
+      "articleId": "15",
+      "rate": 4,
+      "feedback": "",
+      "id": "nWcKPb9"
     }
   ],
   "profile-ratings": [
