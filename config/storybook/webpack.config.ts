@@ -5,15 +5,22 @@ import { BuildPaths } from '../build/types/config';
 
 export default ({ config }: {config: webpack.Configuration}) => {
     const paths: BuildPaths = {
+        src: path.resolve(__dirname, '..', '..', 'src'),
+        entry: '',
         build: '',
         html: '',
-        entry: '',
-        src: path.relative(__dirname, '../../src'),
         locales: '',
         buildLocales: '',
     };
-    config!.resolve!.modules!.push(paths.src, 'node_modules');
+    config!.resolve!.modules!.push(paths.src);
     config!.resolve!.extensions!.push('.ts', '.tsx');
+    config!.resolve!.alias = {
+        // Предварительно разворачиваем алиасы, которые
+        // могли быть в вебпаковском конфиге самого сторибука
+        ...config!.resolve!.alias,
+        // Добавляем алиас на src, как и в основном конфиге webpack
+        '@': paths.src,
+    };
 
     // eslint-disable-next-line no-param-reassign
     // @ts-ignore
