@@ -101,6 +101,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'ab-fsd/path-checker': ['error', { alias: '@' }],
+        'ab-fsd/public-api-imports': ['error', { alias: '@' }],
     },
     // Список глобальных переменных
     globals: {

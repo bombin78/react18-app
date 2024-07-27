@@ -13,7 +13,7 @@ import { AddCommentFormSchema } from '@/features/AddCommentForm';
 import { ProfileSchema } from '@/features/EditableProfileCard';
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
-import { UISchema } from '@/features/UI/model/types/uiSchema';
+import { UISchema } from '@/features/UI';
 import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 
