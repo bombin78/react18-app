@@ -101,7 +101,13 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'ab-fsd/path-checker': ['error', { alias: '@' }],
-        'ab-fsd/public-api-imports': ['error', { alias: '@' }],
+        'ab-fsd/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+            },
+        ],
     },
     // Список глобальных переменных
     globals: {
